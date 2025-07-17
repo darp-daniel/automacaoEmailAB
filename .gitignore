@@ -175,5 +175,6 @@ pyrightconfig.json
 
 # venv Folder
 venv/
+.envrc
 
 # End of https://www.toptal.com/developers/gitignore/api/python
