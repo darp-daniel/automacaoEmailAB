@@ -43,3 +43,11 @@ Este projeto tem como objetivo facilitar o envio automatizado de emails utilizan
 ## 📄 Licença
 
 Este projeto está sob a licença [MIT](LICENSE).
+
+## ⚠️ Aviso de Segurança
+
+Este projeto utiliza uma conta de e-mail de testes com credenciais públicas:
+- **Email**: testeprojetoemail@gmail.com
+- **Senha**: ***Teste1234***
+
+⚠️ Essa conta é usada **apenas para fins de teste**. Não utilize essas credenciais para dados sensíveis ou em produção.
