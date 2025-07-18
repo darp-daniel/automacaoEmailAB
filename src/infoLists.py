@@ -2,26 +2,34 @@ from pprint import pprint
 import openpyxl
 
 def extrair_clients(file_path, linhasPc, colunaInfo):
-    wb = openpyxl.load_workbook(file_path)
-    ws = wb.active
+    try:
+        wb = openpyxl.load_workbook(file_path)
+        ws = wb.active
+    except Exception as e:
+        print(f"Erro ao abrir o arquivo: {e}")
+        return []
+    
 
     clientes = []
 
     max_linhas = ws.max_row
     blocos =   max_linhas // linhasPc
-
-    for bloco in range(blocos):
-
-        inicio = (bloco * linhasPc) + 1
-
-        info_cliente = {}
-
-        for info, (col, linha) in colunaInfo.items():
-            cell = ws[f"{col}{inicio + linha - 1}"]
-            info_cliente[info] = cell.value
+    try:
+        for bloco in range(blocos):
         
-        clientes.append(info_cliente)
-    return clientes
+            inicio = (bloco * linhasPc) + 1
+    
+            info_cliente = {}
+    
+            for info, (col, linha) in colunaInfo.items():
+                cell = ws[f"{col}{inicio + linha - 1}"]
+                info_cliente[info] = str(cell.value).strip() if cell.value else None
+            
+            clientes.append(info_cliente)
+        return clientes
+    except Exception as e:
+        print(f"Erro ao extrair clientes: {e}")
+        return []
 
 if __name__ == "__main__":
     file_path = "/home/daniel/Desktop/WorkSpace/automacaoEmails/src/Atualização cadastral.xlsx"
