@@ -7,9 +7,13 @@ from datetime import datetime
 
 link = "https://allblueunb.com"
 
-pessoas = [{'name': 'Alice', 'email': 'alice10@email.com'},
-           {'name': 'Bob', 'email': 'bob069@email.com'},
-           {'name': 'Charlie', 'email': 'email.com'}]
+pessoas = [{'name': 'Daniel', 'email': 'flaniel.arp@gmail.com'},
+           {'name': 'Darp', 'email': 'instadarp@gmail.com'},
+           {'name': 'Fugi', 'email': 'ohofugii@gmail.com'},
+           {'name': 'Andrei', 'email': 'Andreibfmg01@gmail.com'},
+           {'name': 'Matheus', 'email': 'perdoncini1105@gmail.com'},
+           {'name': 'Rian', 'email': 'rianrocha2003@gmail.com'},
+           {'name': 'Pedro', 'email': 'pedrohenriquedm2208@gmail.com'}]
 
 email_templates = [{'subject': 'Welcome!', 'body': 'Hello {name}, welcome to our service! {link}'},
                    {'subject': 'Reminder', 'body': 'Hi {name}, just a reminder about us {link}'},
@@ -19,7 +23,7 @@ email_templates = [{'subject': 'Welcome!', 'body': 'Hello {name}, welcome to our
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 EMAIL_ADDRESS = 'testeprojetoemail@gmail.com'
-EMAIL_PASSWORD = 'Teste1234'
+EMAIL_PASSWORD = 'vngy udwe chjp kdjo'
 
 def enviar_email(destinatario, assunto, corpo):
     try:
@@ -47,10 +51,12 @@ def main():
         assunto = template['subject']
         corpo = template['body'].format(name=pessoa['name'], link=link)
 
-    if i < len(pessoas) - 1:
-        wait_time = random.randint(10, 30)
-        print(f"Aguardando {wait_time} segundos antes de enviar o próximo email...")
-        time.sleep(wait_time)
+        enviar_email(pessoa['email'], assunto, corpo)
+
+        if i < len(pessoas) - 1:
+            wait_time = random.randint(60, 180)
+            print(f"Aguardando {wait_time} segundos antes de enviar o próximo email...")
+            time.sleep(wait_time)
 
 if __name__ == "__main__":
     main()

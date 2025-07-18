@@ -48,6 +48,6 @@ Este projeto está sob a licença [MIT](LICENSE).
 
 Este projeto utiliza uma conta de e-mail de testes com credenciais públicas:
 - **Email**: testeprojetoemail@gmail.com
-- **Senha**: ***Teste1234***
+- **Senha**: ***vngy udwe chjp kdjo***
 
 ⚠️ Essa conta é usada **apenas para fins de teste**. Não utilize essas credenciais para dados sensíveis ou em produção.
