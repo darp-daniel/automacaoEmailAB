@@ -1,5 +1,6 @@
 from pprint import pprint
 import openpyxl
+import time as t
 
 def extrair_clients(file_path, linhasPc, colunaInfo):
     try:
@@ -49,5 +50,4 @@ if __name__ == "__main__":
     clients1 = extrair_clients(file_path, linhasPc, colunaInfo1)
     clients2 = extrair_clients(file_path, linhasPc, colunaInfo2)
 
-    pprint(clients1)
-    pprint(clients2)
+    
