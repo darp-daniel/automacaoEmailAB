@@ -1,6 +1,7 @@
 from pprint import pprint
 import openpyxl
 import time as t
+import pandas as pd
 
 def extrair_clients(file_path, linhasPc, colunaInfo):
     try:
@@ -24,7 +25,7 @@ def extrair_clients(file_path, linhasPc, colunaInfo):
     
             for info, (col, linha) in colunaInfo.items():
                 cell = ws[f"{col}{inicio + linha - 1}"]
-                info_cliente[info] = str(cell.value).strip() if cell.value else None
+                info_cliente[info] = str(cell.value).strip() if cell.value is not None else 'Sem informação'
             
             clientes.append(info_cliente)
         return clientes
@@ -49,5 +50,16 @@ if __name__ == "__main__":
     }
     clients1 = extrair_clients(file_path, linhasPc, colunaInfo1)
     clients2 = extrair_clients(file_path, linhasPc, colunaInfo2)
+
+    df = pd.DataFrame(clients1 + clients2)
+    df = df[df['email'] != 'sem informação']
+    df = df.drop_duplicates(subset=["email"], keep='first')
+    df = df.reset_index(drop=True)
+    df['email_enviado'] = False
+
+    print("Total de clientes extraídos:", len(df))
+    t.sleep(5)
+    pprint(df)
+
 
    
