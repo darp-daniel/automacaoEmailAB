@@ -2,6 +2,7 @@ from pprint import pprint
 import openpyxl
 import time as t
 import pandas as pd
+import sqlite3
 
 def extrair_clients(file_path, linhasPc, colunaInfo):
     try:
@@ -57,9 +58,14 @@ if __name__ == "__main__":
     df = df.reset_index(drop=True)
     df['email_enviado'] = False
 
-    print("Total de clientes extraídos:", len(df))
+    conn = sqlite3.connect('src/db/clientes.db')
+    df.to_sql('clientes', conn, if_exists='replace', index=False)
     t.sleep(5)
-    pprint(df)
 
+    query = """SELECT * FROM clientes WHERE email_enviado = 0
+ ORDER BY RANDOM() LIMIT 15 """
+    df = pd.read_sql_query(query, conn)
+    conn.close()
+    pprint(df.to_dict(orient='records'))
 
    
