@@ -6,7 +6,9 @@ import sqlite3
 
 def extrair_clients(file_path, linhasPc, colunaInfo):
     try:
+        print(f"Abrindo o arquivo: {file_path}")
         wb = openpyxl.load_workbook(file_path)
+        print("Arquivo aberto com sucesso!")
         ws = wb.active
     except Exception as e:
         print(f"Erro ao abrir o arquivo: {e}")
@@ -42,7 +44,7 @@ def criar_db(clientes):
         df = df.reset_index(drop=True)
         df['email_enviado'] = False
 
-        conn = sqlite3.connect('src/db/clientes_test1.db')
+        conn = sqlite3.connect('src/db/clientes.db')
         df.to_sql('clientes', conn, if_exists='replace', index=False)
 
         print("Dados inseridos no banco de dados com sucesso!")

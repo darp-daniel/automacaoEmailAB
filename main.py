@@ -2,7 +2,7 @@ import src.infoLists as infoLists
 import src.mandandoEmails as mandandoEmails
 
 if __name__ == "__main__":
-    file_path = "src/Atualização cadastral.xlsx"
+    file_path = 'src/Atualização cadastral.xlsx'
     linhasPc = 12
     colunaInfo1 = {
         "nomeEmpresa": ("D", 1),
