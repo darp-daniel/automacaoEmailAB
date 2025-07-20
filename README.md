@@ -36,7 +36,12 @@ Este projeto tem como objetivo facilitar o envio automatizado de emails utilizan
 
 ## 🛠 Tecnologias Utilizadas
 
-- Python
+- Python 3.8+
+- JSON
+- Pandas
+- SQLite3
+- Pprint
+- OpenPyXL
 
 ---
 
