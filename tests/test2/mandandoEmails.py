@@ -6,14 +6,16 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 import pandas as pd
 import sqlite3
-
+from pprint import pprint
 link = "https://allblueunb.com"
 
-conn = sqlite3.connect('src/db/clientes.db')
+conn = sqlite3.connect('src/db/clientes_teste.db')
 query = """SELECT * FROM clientes WHERE email_enviado = 0 ORDER BY RANDOM() LIMIT 15"""
 df = pd.read_sql_query(query, conn)
 df = df.to_dict(orient='records')
 conn.close()
+
+pprint(df)
 
 pessoas = df
 
@@ -44,7 +46,7 @@ def enviar_email(destinatario, assunto, corpo):
         print(f"Email enviado para {destinatario} com sucesso!")
 
         # Update the database to mark the email as sent
-        conn = sqlite3.connect('src/db/clientes.db')
+        conn = sqlite3.connect('src/db/clientes_teste.db')
         cursor = conn.cursor()
         cursor.execute("UPDATE clientes SET email_enviado = 1 WHERE email = ?", (destinatario,))
         conn.commit()

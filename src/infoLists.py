@@ -34,38 +34,20 @@ def extrair_clients(file_path, linhasPc, colunaInfo):
         print(f"Erro ao extrair clientes: {e}")
         return []
 
-if __name__ == "__main__":
-    file_path = "/home/daniel/Desktop/WorkSpace/automacaoEmails/src/Atualização cadastral.xlsx"
-    linhasPc = 12
-    colunaInfo1 = {
-        "nomeEmpresa": ("D", 1),
-        "email": ("B", 8),
-        "representante": ("C", 6),
-        "cargo": ("J", 6)
-    }
-    colunaInfo2 = {
-        "nomeEmpresa": ("P", 1),
-        "email": ("N", 8),
-        "representante": ("O", 6),
-        "cargo": ("V", 6)
-    }
-    clients1 = extrair_clients(file_path, linhasPc, colunaInfo1)
-    clients2 = extrair_clients(file_path, linhasPc, colunaInfo2)
+def criar_db(clientes):
+    try:
+        df = pd.DataFrame(clientes)
+        df = df[df['email'] != 'Sem informação']
+        df = df.drop_duplicates(subset=["email"], keep='first')
+        df = df.reset_index(drop=True)
+        df['email_enviado'] = False
 
-    df = pd.DataFrame(clients1 + clients2)
-    df = df[df['email'] != 'sem informação']
-    df = df.drop_duplicates(subset=["email"], keep='first')
-    df = df.reset_index(drop=True)
-    df['email_enviado'] = False
+        conn = sqlite3.connect('src/db/clientes_test1.db')
+        df.to_sql('clientes', conn, if_exists='replace', index=False)
 
-    conn = sqlite3.connect('src/db/clientes.db')
-    df.to_sql('clientes', conn, if_exists='replace', index=False)
-    t.sleep(5)
-
-    query = """SELECT * FROM clientes WHERE email_enviado = 0
- ORDER BY RANDOM() LIMIT 15 """
-    df = pd.read_sql_query(query, conn)
-    conn.close()
-    pprint(df.to_dict(orient='records'))
+        print("Dados inseridos no banco de dados com sucesso!")
+    except Exception as e:
+        print(f"Erro ao criar o banco de dados: {e}")
+    
 
    

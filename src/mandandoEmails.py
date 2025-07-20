@@ -9,14 +9,6 @@ import sqlite3
 
 link = "https://allblueunb.com"
 
-conn = sqlite3.connect('src/db/clientes.db')
-query = """SELECT * FROM clientes WHERE email_enviado = 0 ORDER BY RANDOM() LIMIT 15"""
-df = pd.read_sql_query(query, conn)
-df = df.to_dict(orient='records')
-conn.close()
-
-pessoas = df
-
 email_templates = [{'subject': 'Welcome!', 'body': 'Hello {name}, welcome to our service! {link}'},
                    {'subject': 'Reminder', 'body': 'Hi {name}, just a reminder about us {link}'},
                    {'subject': 'Update', 'body': 'Dear {name}, we have an update {link} for you'}]
@@ -52,7 +44,14 @@ def enviar_email(destinatario, assunto, corpo):
     except Exception as e:
         print(f"Erro ao enviar email para {destinatario}: {e}")
 
-def main():
+def rodar_envios():
+    conn = sqlite3.connect('src/db/clientes.db')
+    query = """SELECT * FROM clientes WHERE email_enviado = 0 ORDER BY RANDOM() LIMIT 15"""
+    df = pd.read_sql_query(query, conn)
+    df = df.to_dict(orient='records')
+    conn.close()
+    
+    pessoas = df
     random.shuffle(pessoas)
     for i, pessoa in enumerate(pessoas):
         template = random.choice(email_templates)
@@ -63,10 +62,7 @@ def main():
         enviar_email(pessoa['email'], assunto, corpo)
 
         if i < len(pessoas) - 1:
-            wait_time = random.randint(60, 180)
+            wait_time = random.randint(1800, 7200) 
             print(f"Aguardando {wait_time} segundos antes de enviar o próximo email...")
             time.sleep(wait_time)
 
-if __name__ == "__main__":
-    main()
-    print("Todos os emails foram enviados com sucesso!")
