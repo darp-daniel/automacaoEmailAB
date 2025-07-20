@@ -22,7 +22,7 @@ if __name__ == "__main__":
     df = df.reset_index(drop=True)
     df['email_enviado'] = False
 
-    conn = sqlite3.connect('src/db/clientes_teste.db')
+    conn = sqlite3.connect('src/db/clientes_teste2.db')
     df.to_sql('clientes', conn, if_exists='replace', index=False)
     t.sleep(5)
 

@@ -9,8 +9,8 @@ import sqlite3
 from pprint import pprint
 link = "https://allblueunb.com"
 
-conn = sqlite3.connect('src/db/clientes_teste.db')
-query = """SELECT * FROM clientes WHERE email_enviado = 0 ORDER BY RANDOM() LIMIT 15"""
+conn = sqlite3.connect('src/db/clientes_teste2.db')
+query = """SELECT * FROM clientes WHERE email_enviado = 0 ORDER BY RANDOM() LIMIT 3"""
 df = pd.read_sql_query(query, conn)
 df = df.to_dict(orient='records')
 conn.close()
@@ -46,7 +46,7 @@ def enviar_email(destinatario, assunto, corpo):
         print(f"Email enviado para {destinatario} com sucesso!")
 
         # Update the database to mark the email as sent
-        conn = sqlite3.connect('src/db/clientes_teste.db')
+        conn = sqlite3.connect('src/db/clientes_teste2.db')
         cursor = conn.cursor()
         cursor.execute("UPDATE clientes SET email_enviado = 1 WHERE email = ?", (destinatario,))
         conn.commit()
@@ -65,7 +65,7 @@ def main():
         enviar_email(pessoa['email'], assunto, corpo)
 
         if i < len(pessoas) - 1:
-            wait_time = random.randint(60, 180)
+            wait_time = random.randint(10, 30)
             print(f"Aguardando {wait_time} segundos antes de enviar o próximo email...")
             time.sleep(wait_time)
 

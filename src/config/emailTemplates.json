@@ -1,0 +1,13 @@
+[
+    {
+        "subject": "Welcome!", 
+        "body": "Hello {name}, welcome to our service! {link}"
+    },
+    {
+        "subject": "Reminder", 
+        "body": "Hi {name}, just a reminder about us {link}"},
+    {
+        "subject": "Update", 
+        "body": "Dear {name}, we have an update {link} for you"
+    }
+]

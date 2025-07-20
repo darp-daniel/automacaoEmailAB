@@ -49,5 +49,30 @@ def criar_db(clientes):
     except Exception as e:
         print(f"Erro ao criar o banco de dados: {e}")
     
+if __name__ == "__main__":
+    file_path = "src/Atualização cadastral.xlsx"
+    linhasPc = 12
+    colunaInfo1 = {
+        "nomeEmpresa": ("D", 1),
+        "email": ("B", 8),
+        "representante": ("C", 6),
+        "cargo": ("J", 6)
+    }
+    colunaInfo2 = {
+        "nomeEmpresa": ("P", 1),
+        "email": ("N", 8),
+        "representante": ("O", 6),
+        "cargo": ("V", 6)
+    }
+    clients1 = extrair_clients(file_path, linhasPc, colunaInfo1)
+    clients2 = extrair_clients(file_path, linhasPc, colunaInfo2)
+
+    df = pd.DataFrame(clients1 + clients2)
+    df = df[df['email'] != 'Sem informação']
+    df = df.drop_duplicates(subset=["email"], keep='first')
+    df = df.reset_index(drop=True)
+    df['email_enviado'] = False
+
+    criar_db(df.to_dict(orient='records'))
 
    

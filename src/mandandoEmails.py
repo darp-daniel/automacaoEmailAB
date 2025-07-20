@@ -6,18 +6,20 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 import pandas as pd
 import sqlite3
+import json
 
 link = "https://allblueunb.com"
 
-email_templates = [{'subject': 'Welcome!', 'body': 'Hello {name}, welcome to our service! {link}'},
-                   {'subject': 'Reminder', 'body': 'Hi {name}, just a reminder about us {link}'},
-                   {'subject': 'Update', 'body': 'Dear {name}, we have an update {link} for you'}]
+with open('src/config/emailTemplates.json', 'r') as file:
+    email_templates = json.load(file)
 
-#Email configuration
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
-EMAIL_ADDRESS = 'testeprojetoemail@gmail.com'
-EMAIL_PASSWORD = 'vngy udwe chjp kdjo'
+# Load email credentials from a JSON file
+with open('src/config/emailConfig.json', 'r') as file:
+    config = json.load(file)
+    EMAIL_ADDRESS = config['EMAIL_ADDRESS']
+    EMAIL_PASSWORD = config['EMAIL_PASSWORD']
+    SMTP_SERVER = config['SMTP_SERVER']
+    SMTP_PORT = config['SMTP_PORT']
 
 def enviar_email(destinatario, assunto, corpo):
     try:
@@ -51,17 +53,17 @@ def rodar_envios():
     df = df.to_dict(orient='records')
     conn.close()
     
-    pessoas = df
-    random.shuffle(pessoas)
-    for i, pessoa in enumerate(pessoas):
+    clientes = df
+    random.shuffle(clientes)
+    for i, cliente in enumerate(clientes):
         template = random.choice(email_templates)
 
         assunto = template['subject']
-        corpo = template['body'].format(name=pessoa['name'], link=link)
+        corpo = template['body'].format(name=cliente['name'], link=link)
 
-        enviar_email(pessoa['email'], assunto, corpo)
+        enviar_email(cliente['email'], assunto, corpo)
 
-        if i < len(pessoas) - 1:
+        if i < len(clientes) - 1:
             wait_time = random.randint(1800, 7200) 
             print(f"Aguardando {wait_time} segundos antes de enviar o próximo email...")
             time.sleep(wait_time)
