@@ -52,6 +52,12 @@ def rodar_envios():
     df = pd.read_sql_query(query, conn)
     df = df.to_dict(orient='records')
     conn.close()
+
+    for cliente in clientes:
+        if cliente['representante'] == 'Sem informação':
+            cliente['representante'] = 'Prezado(a)'
+        if cliente['nomeEmpresa'] == 'Sem informação':
+            cliente['nomeEmpresa'] = 'sua empresa'
     
     clientes = df
     random.shuffle(clientes)
@@ -59,7 +65,7 @@ def rodar_envios():
         template = random.choice(email_templates)
 
         assunto = template['subject']
-        corpo = template['body'].format(name=cliente['name'], link=link)
+        corpo = template['body'].format(nomeEmpresa=cliente['nomeEmpresa'], representante=cliente['representante'])
 
         enviar_email(cliente['email'], assunto, corpo)
 

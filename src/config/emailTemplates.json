@@ -1,13 +1,22 @@
 [
-    {
-        "subject": "Welcome!", 
-        "body": "Hello {name}, welcome to our service! {link}"
-    },
-    {
-        "subject": "Reminder", 
-        "body": "Hi {name}, just a reminder about us {link}"},
-    {
-        "subject": "Update", 
-        "body": "Dear {name}, we have an update {link} for you"
-    }
+  {
+    "subject": "Convite para Colaboração: Pesquisa UnB sobre o Setor Subaquático",
+    "body": "Olá, {representante}, tudo bem?\n\nSomos o ALL Blue, um grupo de pesquisa em engenharia da Universidade de Brasília (UnB) focado em robótica subaquática.\n\nA {nomeEmpresa} é uma referência para nós no setor subaquático brasileiro. Por isso, gostaríamos de convidá-lo(a) a colaborar com nossa pesquisa, que busca alinhar o desenvolvimento tecnológico da universidade com as necessidades reais do mercado.\n\nSua perspectiva sobre os desafios e demandas atuais seria extremamente valiosa para nós. Para contribuir, basta preencher um formulário rápido de 3 a 5 minutos. Todas as respostas são confidenciais.\n\n**Acesse o formulário aqui:** https://docs.google.com/forms/d/e/1FAIpQLSfHJidvMP2hoFS92pF8o06lxvzs_HFAk8XrNToW7tpJoI7vyQ/viewform\n\nAgradecemos muito seu tempo e apoio ao desenvolvimento da tecnologia nacional.\n\nAtenciosamente,\n\n**Equipe ALL Blue | Grupo de Pesquisa em Engenharia**\nUniversidade de Brasília (UnB)\nhttps://allblueunb.com/"
+  },
+  {
+    "subject": "Podemos contar com sua experiência no setor subaquático?",
+    "body": "Prezado(a) {representante},\n\nNós do grupo ALL Blue, da UnB, somos apaixonados por robótica subaquática. Em nosso mapeamento das empresas que fazem a diferença no Brasil, o nome da {nomeEmpresa} surgiu imediatamente.\n\nEstamos desenvolvendo novas tecnologias e queremos garantir que elas sejam realmente úteis para o mercado. Por isso, nada melhor do que ouvir quem entende do assunto, como você.\n\nSerá que você poderia nos ajudar respondendo a um questionário bem rápido? Leva apenas de 3 a 5 minutos e sua visão nos ajudará a direcionar nossos projetos. A pesquisa é anônima e os dados são confidenciais.\n\n**Para participar, é só clicar aqui:** https://docs.google.com/forms/d/e/1FAIpQLSfHJidvMP2hoFS92pF8o06lxvzs_HFAk8XrNToW7tpJoI7vyQ/viewform\n\nSua colaboração fará uma grande diferença para a inovação no setor. Muito obrigado!\n\nAbraços,\n\n**ALL Blue - Grupo de Pesquisa**\nEngenharia | Universidade de Brasília (UnB)\nhttps://allblueunb.com/"
+  },
+  {
+    "subject": "Contribua para o Futuro da Tecnologia Subaquática no Brasil",
+    "body": "Prezado(a) {representante},\n\nA {nomeEmpresa} foi identificada por nosso grupo de pesquisa na Universidade de Brasília como uma peça-chave no cenário de tecnologia subaquática nacional.\n\nNós, do grupo ALL Blue, desenvolvemos robôs e soluções subaquáticas e estamos em uma missão: garantir que a ciência da universidade sirva diretamente à indústria. Para isso, buscamos entender os desafios práticos que empresas como a sua enfrentam.\n\nConvidamos você a compartilhar sua valiosa perspectiva em uma pesquisa online. Com duração de 3 a 5 minutos, o formulário nos ajudará a moldar o futuro da robótica subaquática no Brasil, tornando-a mais relevante para suas demandas.\n\n**Participe da nossa pesquisa aqui:** https://docs.google.com/forms/d/e/1FAIpQLSfHJidvMP2hoFS92pF8o06lxvzs_HFAk8XrNToW7tpJoI7vyQ/viewform\n\nAs informações são confidenciais e serão usadas de forma anônima para fins acadêmicos.\n\nAgradecemos imensamente sua atenção e contribuição para a inovação nacional.\n\nCordialmente,\n\n**ALL Blue Grupo de Pesquisa em Engenharia**\nUniversidade de Brasília (UnB)\nhttps://allblueunb.com/"
+  },
+  {
+    "subject": "Pesquisa Rápida: Desafios da Engenharia Subaquática no Brasil",
+    "body": "Olá, {representante}.\n\nSomos o ALL Blue, um grupo de pesquisa da UnB focado em robótica subaquática.\n\nA {nomeEmpresa} é uma referência no setor e gostaríamos muito de contar com sua expertise para um breve levantamento. O objetivo é entender os principais desafios do mercado para direcionar nossas inovações.\n\nPoderia nos ajudar respondendo a este formulário de 3 minutos?\n\n**Link para a pesquisa:** https://docs.google.com/forms/d/e/1FAIpQLSfHJidvMP2hoFS92pF8o06lxvzs_HFAk8XrNToW7tpJoI7vyQ/viewform\n\nAs respostas são confidenciais.\n\nAgradecemos sua colaboração.\n\nAtenciosamente,\n\n**Equipe ALL Blue**\nUniversidade de Brasília (UnB)\nhttps://allblueunb.com/"
+  },
+  {
+    "subject": "Solicitação de Contribuição para Pesquisa Acadêmica | UnB e Setor Subaquático",
+    "body": "Prezado(a) {representante},\n\nEm nome do grupo de pesquisa em engenharia ALL Blue, da Universidade de Brasília (UnB), entramos em contato com grande respeito pelo trabalho desenvolvido pela {nomeEmpresa}.\n\nNossa linha de pesquisa concentra-se no desenvolvimento de Robôs Subaquáticos e, como parte fundamental de nosso projeto, estamos conduzindo um estudo para compreender as demandas e os desafios tecnológicos do setor no Brasil. O intuito é alinhar a produção científica com as necessidades práticas da indústria.\n\nNeste sentido, gostaríamos de convidá-lo(a) a participar de nossa pesquisa por meio de um questionário online, cujo preenchimento não excederá 5 minutos. Asseguramos o completo sigilo e anonimato dos dados coletados.\n\nO formulário pode ser acessado através do seguinte link: https://docs.google.com/forms/d/e/1FAIpQLSfHJidvMP2hoFS92pF8o06lxvzs_HFAk8XrNToW7tpJoI7vyQ/viewform\n\nSua participação será de imenso valor para o avanço da pesquisa e desenvolvimento tecnológico em nossa área.\n\nAgradecemos sua atenção.\n\nRespeitosamente,\n\n**ALL Blue Grupo de Pesquisa em Engenharia**\nUniversidade de Brasília (UnB)\nhttps://allblueunb.com/"
+  }
 ]
